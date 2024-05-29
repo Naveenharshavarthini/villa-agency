@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Villa Agency</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        .container {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+        }
+
+        header {
+            background: #333;
+            color: #fff;
+            padding: 1rem 0;
+            animation: fadeInDown 1s ease-out;
+        }
+
+        header h1 {
+            float: left;
+            margin-left: 20px;
+        }
+
+        nav {
+            float: right;
+            margin-right: 20px;
+        }
+
+        nav ul {
+            list-style: none;
+        }
+
+        nav ul li {
+            display: inline;
+            margin-left: 20px;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #ff6600;
+        }
+
+        #hero {
+            background: url(villa5.jpg) no-repeat center center/cover;
+            color: #fff;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            animation: zoomIn 1s ease-out;
+        }
+
+        #hero h2 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+        }
+
+        #hero p {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+        }
+
+        #hero .btn {
+            background: #ff6600;
+            color: #fff;
+            padding: 10px 20px;
+            text-decoration: none;
+            font-size: 1rem;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+
+        #hero .btn:hover {
+            background: #e65c00;
+        }
+
+        #villas, #about, #contact {
+            padding: 40px 0;
+            background: #fff;
+            animation: fadeIn 1s ease-out;
+        }
+
+        #villas h2, #about h2, #contact h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .villa-list {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+
+        .villa {
+            background: #f4f4f4;
+            border: 1px solid #ccc;
+            padding: 20px;
+            text-align: center;
+            width: 30%;
+            margin-bottom: 20px;
+            transition: transform 0.3s;
+        }
+
+        .villa:hover {
+            transform: translateY(-10px);
+        }
+
+        .villa img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .villa h3 {
+            margin: 15px 0;
+        }
+
+        #about {
+            text-align: center;
+            background: #f9f9f9;
+        }
+
+        #about p {
+            max-width: 800px;
+            margin: 0 auto;
+            font-size: 1.2rem;
+            line-height: 1.8;
+            padding: 0 20px;
+        }
+
+        #contact {
+            background: #f4f4f4;
+            animation: slideInLeft 1s ease-out;
+        }
+
+        #contact form {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #fff;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            animation: slideInRight 1s ease-out;
+        }
+
+        #contact form div {
+            margin-bottom: 15px;
+            animation: fadeIn 1s ease-out;
+        }
+
+        #contact form label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        #contact form input,
+        #contact form textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        #contact form textarea {
+            resize: vertical;
+            height: 150px;
+        }
+
+        #contact form .btn {
+            display: inline-block;
+            background: #ff6600;
+            color: #fff;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+
+        #contact form .btn:hover {
+            background: #e65c00;
+        }
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes zoomIn {
+            from {
+                opacity: 0;
+                transform: scale(0.5);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .villa {
+                width: 45%;
+            }
+        }
+
+        @media (max-width: 500px) {
+            .villa {
+                width: 100%;
+            }
+
+            header h1, nav {
+                float: none;
+                text-align: center;
+                margin: 0;
+            }
+
+            nav ul {
+                padding: 0;
+            }
+
+            nav ul li {
+                display: block;
+                margin: 10px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Villa Agency</h1>
+            <nav>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#villas">Villas</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section id="hero">
+        <div class="container">
+            <h2>Find Your Dream Villa</h2>
+            <p>Discover the best villas available for rent and sale.</p>
+            <a href="#villas" class="btn">View Villas</a>
+        </div>
+    </section>
+
+    <section id="villas">
+        <div class="container">
+            <h2>Our Villas</h2>
+            <div class="villa-list">
+                <div class="villa">
+                    <img src="villa1.jpg" alt="Villa 1">
+                    <h3>Luxury Villa</h3>
+                    <p>"There is nothing more important than a good, safe, secure home."</p>
+                </div>
+                <div class="villa">
+                    <img src="villa2.jpg" alt="Villa 2">
+                    <h3>Modern Villa</h3>
+                    <p>"There is nothing more important than a good, safe, secure home."</p>
+                </div>
+                <div class="villa">
+                    <img src="villa4.jpg" alt="Villa 3">
+                    <h3>Beachfront Villa</h3>
+                    <p>"There is nothing more important than a good, safe, secure home."</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about">
+        <div class="container">
+            <h2>About Us</h2>
+            <p>Welcome to Villa Agency, where your dream villa awaits. We are a premier real estate agency specializing in luxury villas, offering a curated selection of the finest properties from around the globe. Whether you're seeking a serene beachfront escape, a modern architectural marvel in the city, or a tranquil countryside retreat, our diverse portfolio caters to all tastes and preferences.
+            At Villa Agency, our mission is to match discerning clients with exceptional villas that meet their unique desires and needs. We understand that finding the perfect villa is more than just a transaction; it's about discovering a space where you can create lasting memories, enjoy unparalleled comfort, and indulge in ultimate luxury.
+            Why choose us? Our team of experienced real estate professionals possesses extensive knowledge of the luxury villa market. We are committed to providing insightful guidance and personalized service to help you navigate your villa search with ease. We offer an exclusive selection of villas, each handpicked for its superior quality, stunning design, and prime location. Our properties are situated in some of the world's most sought-after destinations, ensuring that you have access to the best options available.
+            We take pride in offering a bespoke service that is tailored to your individual requirements. From the initial consultation to the final transaction, we are dedicated to ensuring a smooth and enjoyable experience. At Villa Agency, excellence is our standard. We are committed to exceeding your expectations by delivering exceptional service, attention to detail, and unwavering dedication to your satisfaction.
+            At Villa Agency, we believe that your dream villa is just a few clicks away. Explore our website to view our stunning collection of villas, or contact our team for personalized assistance. Let us help you find a villa that not only meets but exceeds your expectations, providing a luxurious sanctuary that you can call home.</p>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="container">
+            <h2>Contact Us</h2>
+            <form action="mailto:your-email@example.com" method="post" enctype="text/plain">
+                <div>
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div>
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div>
+                    <label for="subject">Subject</label>
+                    <input type="text" id="subject" name="subject" required>
+                </div>
+                <div>
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" required></textarea>
+                </div>
+                <div>
+                    <button type="submit" class="btn">Send Message</button>
+                </div>
+            </form>
+        </div>
+    </section>
+</body>
+</html>
